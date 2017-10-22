@@ -17,10 +17,9 @@ main();
 })();
 
 function main() {
-  listar();
-  listarMedicao();
-  eventos();
-  startPooling();
+    listar();
+    listarMedicao();
+    eventos();
 }
 
 function eventos() {
@@ -57,7 +56,7 @@ function listarMedicao() {
             <td collspan="5">Nenhum registro encontrado.</td>
         </tr>`;
 
-        $(".mdl-layout__content").find("table").html(html);
+        $(".mdl-layout__content .medicao").find("table").html(html);
         snackedBar("processo inesperado ao carregar dados do servidor");
     });
 }
@@ -83,15 +82,6 @@ function gravar() {
     
 }
 
-function startPooling() {
-   
-    setInterval(function() {
-        $.getJSON("", function() {
-
-        });
-    }, 1000);
-}
-
 function montarPluviometro(data) {
     var select = $("#pluviometro");
     var html = "";
@@ -104,7 +94,7 @@ function montarPluviometro(data) {
 }
 
 function montarLista(dados) {
-    var container = $(".mdl-layout__content");
+    var container = $(".mdl-layout__content .medicao");
     var html = "";
 
     dados.forEach((item, i) => {
