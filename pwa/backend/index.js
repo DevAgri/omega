@@ -1,8 +1,11 @@
 var express = require('express');
+var Pluviometro = require('./repository/Pluviometro');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World');
+app.get('/pluviometro/list', function(req, res) {
+    Pluviometro.list().then(result => {
+        res.json(result);
+    });
 });
 
 app.listen(3000);
