@@ -1,12 +1,8 @@
 var express = require('express');
 var moment = require('moment');
 var app = express();
-var server = require('http').createServer(app);
 var Pluviometro = require('./repository/Pluviometro');
 var PluviometroMedicao = require('./repository/PluviometroMedicao');
-
-
-var socket = require("socket.io")(server);
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -36,11 +32,6 @@ app.get('/pluviometromedicao/gravar', function (req, res)  {
     PluviometroMedicao.insert(valor, data, nome, pluvId).then(result => {
         res.json(result);
     });
-});
-
-socket.on("update.pluviometro", function() {
-    console.info("atualizar pluviometro");
-    socket.emit("updatemap");
 });
 
 app.listen(3000);
