@@ -15,13 +15,10 @@ exports.list = function(pluviometroId) {
 };
 
 
-exports.listAll = function(ano) {
+exports.listAll = function() {
     return new Promise(function(resolve, reject) {
         let sql = `select p.id, pl.descricao, p.valor, p.periodo, p.nome from pluviometro_medicao p
         left join pluviometro pl on (pl.id = p.pluviometro_id)`;
-        if (ano != "") {
-            
-        }
         connector.query(sql, function(error, results, fields) {
             if (error) {
                 reject(error);
@@ -37,7 +34,7 @@ exports.mapList = function() {
         var year = (new Date()).getFullYear();
         let sql = `select sum(m.valor) as total, m.pluviometro_id, p.descricao, p.latitude, p.longitude from pluviometro_medicao m
         left join pluviometro p on (m.pluviometro_id = p.id)
-        where YEAR(m.periodo) = `${year}`
+        where YEAR(m.periodo) = '${year}'
         group by m.pluviometro_id`;
         connector.query(sql, function(error, results, fields) {
             if (error) {

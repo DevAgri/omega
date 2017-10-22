@@ -17,8 +17,7 @@ app.get('/pluviometro/list', function(req, res) {
 });
 
 app.get('/pluviometromedicao/listall', function (req, res)  {
-    var valor = req.query.ano;
-    PluviometroMedicao.listAll(valor).then(result => {
+    PluviometroMedicao.listAll().then(result => {
         res.json(result);
     });
 });
