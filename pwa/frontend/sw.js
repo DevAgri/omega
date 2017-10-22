@@ -10,6 +10,8 @@ self.addEventListener('install', function(event) {
                 '/scripts.js',
                 '/lib/css/material.cyan-light_blue.min.css',
                 '/node_modules/material-design-icons/iconfont/material-icons.css',
+                '/node_modules/jquery/dist/jquery.min.js',
+                '/node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2',
                 '/images/android-desktop.png',
                 '/images/favicon.ico',
                 '/lib/js/localforage.min.js',
