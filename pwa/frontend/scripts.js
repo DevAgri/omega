@@ -43,7 +43,7 @@ function listar() {
 
 function listarMedicao() {
     $.ajax({
-        url: "http://localhost:3000/pluviometromedicao/listall",
+        url: "http://localhost:3000/pluviometromedicao/listall&ano=" + $("#ano").val(),
         type: "GET"
     }).done((data) => {
         montarLista(data);

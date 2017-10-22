@@ -15,10 +15,13 @@ exports.list = function(pluviometroId) {
 };
 
 
-exports.listAll = function() {
+exports.listAll = function(ano) {
     return new Promise(function(resolve, reject) {
         let sql = `select p.id, pl.descricao, p.valor, p.periodo, p.nome from pluviometro_medicao p
         left join pluviometro pl on (pl.id = p.pluviometro_id)`;
+        if (ano != "") {
+            
+        }
         connector.query(sql, function(error, results, fields) {
             if (error) {
                 reject(error);
