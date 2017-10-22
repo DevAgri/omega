@@ -34,8 +34,10 @@ exports.listAll = function(ano) {
 
 exports.mapList = function() {
     return new Promise(function(resolve, reject) {
+        var year = (new Date()).getFullYear();
         let sql = `select sum(m.valor) as total, m.pluviometro_id, p.descricao, p.latitude, p.longitude from pluviometro_medicao m
         left join pluviometro p on (m.pluviometro_id = p.id)
+        where YEAR(m.periodo) = `${year}`
         group by m.pluviometro_id`;
         connector.query(sql, function(error, results, fields) {
             if (error) {
