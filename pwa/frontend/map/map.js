@@ -1,4 +1,8 @@
 function initMap() {
+    listarMedicao();
+}
+
+function montarPontos(dados) {
     var pontos = [{ pluv: '001', loc: { lat: -15.005399, lng: -57.342107 } },
         { pluv: '002', loc: { lat: -14.985713, lng: -57.332940 } },
         { pluv: '003', loc: { lat: -14.979642, lng: -57.315415 } },
@@ -56,12 +60,6 @@ function initMap() {
             radius: 800
         });
     }
-
-    listarMedicao();
-}
-
-function montarPontos(dados) {
-
 }
 
 function montarLista(dados) {
@@ -69,20 +67,19 @@ function montarLista(dados) {
     var html = "";
 
     dados.forEach((item, i) => {
-        var template = 
-        `<tr>
+        var template =
+            `<tr>
             <td class="mdl-data-table__cell--non-numeric">${item.descricao}</td>
-            <td>${item.valor}</td>
-            <td>${item.nome}</td>
+            <td>${item.total}</td>
         </tr>`;
 
         html += template;
     });
-    
-    
+
+
     if (html == "") {
-        html = 
-        `<tr>
+        html =
+            `<tr>
             <td collspan="5">Nenhum registro encontrado.</td>
         </tr>`;
 
@@ -94,11 +91,13 @@ function montarLista(dados) {
 
 function listarMedicao() {
     $.ajax({
-        url: "http://localhost:3000/pluviometromedicao/listall",
+        url: "http://localhost:3000/pluviometromedicao/maplist",
         type: "GET"
-    }).done((data) => {
-        montarLista(data);
-        console.info(data);
+    }).done((dados) => {
+        debugger;
+        montarLista(dados);
+        montarPontos(dados);
+        console.info(dados);
     }).fail(() => {
         snackedBar("processo inesperado ao carregar dados do servidor");
     });

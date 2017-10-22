@@ -29,6 +29,22 @@ exports.listAll = function() {
     });
 };
 
+exports.mapList = function() {
+    return new Promise(function(resolve, reject) {
+        let sql = `select sum(m.valor) as total, m.pluviometro_id, p.descricao, p.latitude, p.longitude from pluviometro_medicao m
+        left join pluviometro p on (m.pluviometro_id = p.id)
+        group by m.pluviometro_id`;
+        connector.query(sql, function(error, results, fields) {
+            if (error) {
+                reject(error);
+            }
+            resolve(results);
+        });
+        
+    });
+   
+}
+
 exports.insert = function(valor, periodo, nome, pluviometroId) {
     return new Promise(function(resolve, reject) {
         let sql = `insert into pluviometro_medicao set periodo='${periodo}', 

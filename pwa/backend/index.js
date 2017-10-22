@@ -23,6 +23,12 @@ app.get('/pluviometromedicao/listall', function (req, res)  {
     });
 });
 
+app.get('/pluviometromedicao/maplist', function (req, res)  {
+    PluviometroMedicao.mapList().then(result => {
+        res.json(result);
+    });
+});
+
 app.get('/pluviometromedicao/gravar', function (req, res)  {
 
     var data = moment().format("YYYY-MM-DD");
