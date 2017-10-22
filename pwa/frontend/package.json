@@ -1,0 +1,31 @@
+{
+  "name": "pwa-dev.agri",
+  "version": "1.0.0",
+  "description": "app de gerenciamento pluviometrico",
+  "main": "index.html",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevAgri/omega.git"
+  },
+  "keywords": [
+    "pwa",
+    "app",
+    "pluviometro"
+  ],
+  "author": "team omega dev.agri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevAgri/omega/issues"
+  },
+  "homepage": "https://github.com/DevAgri/omega#readme",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "material-design-icons": "^3.0.1"
+  }
+}
