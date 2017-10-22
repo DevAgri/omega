@@ -3,44 +3,50 @@ function initMap() {
 }
 
 function montarPontos(dados) {
-    var pontos = [{ pluv: '001', loc: { lat: -15.005399, lng: -57.342107 } },
-        { pluv: '002', loc: { lat: -14.985713, lng: -57.332940 } },
-        { pluv: '003', loc: { lat: -14.979642, lng: -57.315415 } },
-        { pluv: '004', loc: { lat: -14.992467, lng: -57.321372 } },
-        { pluv: '005', loc: { lat: -14.981264, lng: -57.303018 } },
-        { pluv: '005', loc: { lat: -15.003652, lng: -57.310410 } },
-        { pluv: '007', loc: { lat: -14.968996, lng: -57.325257 } },
-        { pluv: '008', loc: { lat: -14.962540, lng: -57.299452 } },
-        { pluv: '009', loc: { lat: -14.976004, lng: -57.291462 } },
-        { pluv: '010', loc: { lat: -15.98, lng: -57.282601 } },
-        { pluv: '011', loc: { lat: -14.992182, lng: -57.267528 } },
-        { pluv: '012', loc: { lat: -14.979470, lng: -57.257956 } }
-    ];
+    var pontos = [];
+    /*var porcAgua = [
+        { qtd: 100, cor: '#1418ff' },
+        { qtd: 75, cor: '#ffff05' },
+        { qtd: 50, cor: '#baff8a' },
+        { qtd: 25, cor: '#ffff05' },
+        { qtd: 0, cor: '#ff1e00' }
+    ];*/
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
-        center: pontos[4].loc,
+        center: {lat: -14.976004, lng: -57.291462},
         mapTypeId: google.maps.MapTypeId.SATELLITE
     });
 
-    var porcAgua = [
-        { qtd: '100%', cor: '#1418ff' },
-        { qtd: '75%', cor: '#ffff05' },
-        { qtd: '50%%', cor: '#baff8a' },
-        { qtd: '25%', cor: '#ffff05' },
-        { qtd: '0%', cor: '#ff1e00' }
-    ];
+    for (var i=0, len = dados.length; i < len; i++){
+        var row = dados[i];
+        pontos.push({
+            pluv: row.descricao,
+            loc: {
+                lat: Number(row.latitude),
+                lng: Number(row.longitude)
+            }
+        });
 
-    var ii = 0;
-
-    var color = '#4d004d';
-    for (var i in pontos) {
-        ii++;
-        if (ii > 4) {
-            ii = 0;
+        var porcentagem = (row.total * 100) / 1700;
+        console.warn(row.total); 
+        console.log(porcentagem);
+        var color = "#ff1e00";
+        if (porcentagem >= 0 && porcentagem < 25) {
+            color = "#ff1e00";
+        } else
+        if (porcentagem >= 25 && porcentagem < 50) {
+            color = "#ffff05";
+        } else
+        if (porcentagem >= 50 && porcentagem < 75) {
+            color = "#baff8a";
+        } else
+        if (porcentagem >= 75 && porcentagem < 100) {
+            color = "#ffff05";
+        } else {
+            color = "#1418ff"; 
         }
 
-        color = porcAgua[ii].cor;
 
         var marker = new google.maps.Marker({
             position: pontos[i].loc,
@@ -60,6 +66,9 @@ function montarPontos(dados) {
             radius: 800
         });
     }
+    
+    
+
 }
 
 function montarLista(dados) {
