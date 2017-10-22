@@ -1,4 +1,5 @@
 
+var dialogSalvar = null;
 (() => {
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js')
@@ -53,13 +54,20 @@ function listarMedicao() {
     });
 }
 
-function gravar() { 
+function gravar() {
     $.ajax({
         url: "http://localhost:3000/pluviometromedicao/gravar?nome=" + $("#nome").val() + 
             "&valor=" + $("#nivel").val() + "&pluvId=" + $("#pluviometro").val(),
         type: "GET",
     }).done((data) => {
-        alert("Mensagem salva");
+        dialogSalvar.close();
+        
+        $("#nome").val("");
+        $("#nivel").val("");
+        $("#pluviometro").val("")
+
+        snackedBar("Medição salva!")
+        listarMedicao();
     }).fail(() => {
         snackedBar("processo inesperado ao carregar dados do servidor");
     });
@@ -112,7 +120,7 @@ function actionModal() {
     var dialog = document.querySelector('dialog');
     var showDialogButton = document.querySelector('#view-source');
     
-    if (! dialog.showModal) {
+    if (!dialog.showModal) {
       dialogPolyfill.registerDialog(dialog);
     }
     
@@ -120,6 +128,7 @@ function actionModal() {
       dialog.showModal();
     });
 
+    dialogSalvar = dialog;
     dialog.querySelector('.close').addEventListener('click', function() {
       dialog.close();
     });    
