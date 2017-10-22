@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `pluviometro_medicao` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `valor` decimal(10,3) NOT NULL,
   `periodo` datetime NOT NULL,
+  `pluviometro_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
