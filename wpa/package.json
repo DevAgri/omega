@@ -1,0 +1,22 @@
+{
+  "name": "apache",
+  "version": "0.0.1",
+  "description": "Lançamento de informações offline em campo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevAgri/omega.git"
+  },
+  "keywords": [
+    "devagri"
+  ],
+  "author": "#teamOmega",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevAgri/omega/issues"
+  },
+  "homepage": "https://github.com/DevAgri/omega#readme"
+}
