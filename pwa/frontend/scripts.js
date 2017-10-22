@@ -1,26 +1,25 @@
-
 var dialogSalvar = null;
 (() => {
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-    .then(function() {
-        console.log('service worker registered');
-    })
-    .catch(function(error) {
-        console.warn('service worker failed');
-        console.error(error);
-    });
-}
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(function() {
+                console.log('service worker registered');
+            })
+            .catch(function(error) {
+                console.warn('service worker failed');
+                console.error(error);
+            });
+    }
 
-main();
+    main();
 
 })();
 
 function main() {
-  listar();
-  listarMedicao();
-  eventos();
-  startPooling();
+    listar();
+    listarMedicao();
+    eventos();
+    startPooling();
 }
 
 function eventos() {
@@ -30,7 +29,7 @@ function eventos() {
     });
 }
 
-function listar(){
+function listar() {
     $.ajax({
         url: "http://localhost:3000/pluviometro/list",
         type: "GET"
@@ -52,8 +51,8 @@ function listarMedicao() {
         console.info(data);
     }).fail(() => {
 
-        var html = 
-        `<tr>
+        var html =
+            `<tr>
             <td collspan="5">Nenhum registro encontrado.</td>
         </tr>`;
 
@@ -64,7 +63,7 @@ function listarMedicao() {
 
 function gravar() {
     $.ajax({
-        url: "http://localhost:3000/pluviometromedicao/gravar?nome=" + $("#nome").val() + 
+        url: "http://localhost:3000/pluviometromedicao/gravar?nome=" + $("#nome").val() +
             "&valor=" + $("#nivel").val() + "&pluvId=" + $("#pluviometro").val(),
         type: "GET",
     }).done((data) => {
@@ -80,11 +79,11 @@ function gravar() {
     }).fail(() => {
         snackedBar("processo inesperado ao carregar dados do servidor");
     });
-    
+
 }
 
 function startPooling() {
-   
+
     setInterval(function() {
         $.getJSON("", function() {
 
@@ -108,8 +107,8 @@ function montarLista(dados) {
     var html = "";
 
     dados.forEach((item, i) => {
-        var template = 
-        `<tr>
+        var template =
+            `<tr>
             <td class="mdl-data-table__cell--non-numeric">${item.descricao}</td>
             <td>${item.valor}</td>
             <td>${item.nome}</td>
@@ -120,11 +119,11 @@ function montarLista(dados) {
 
         html += template;
     });
-    
-    
+
+
     if (html == "") {
-        html = 
-        `<tr>
+        html =
+            `<tr>
             <td collspan="5">Nenhum registro encontrado.</td>
         </tr>`;
 
@@ -137,26 +136,26 @@ function montarLista(dados) {
 function actionModal() {
     var dialog = document.querySelector('dialog');
     var showDialogButton = document.querySelector('#view-source');
-    
+
     if (!dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
+        dialogPolyfill.registerDialog(dialog);
     }
-    
+
     showDialogButton.addEventListener('click', function() {
-      dialog.showModal();
+        dialog.showModal();
     });
 
     dialogSalvar = dialog;
     dialog.querySelector('.close').addEventListener('click', function() {
-      dialog.close();
-    });    
+        dialog.close();
+    });
 }
 
 function snackedBar(text, actionText, actionHandler) {
 
-    var snackbarContainer = document.querySelector("#snackbar");  
+    var snackbarContainer = document.querySelector("#snackbar");
     var data = {
-    message: text,
+        message: text,
         timeout: 2000,
         actionHandler: actionHandler,
         actionText: actionText

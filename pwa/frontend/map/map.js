@@ -1,5 +1,9 @@
 function initMap() {
     listarMedicao();
+    // já que o socket fumou, bora de interval e fazer funcionar.
+    setInterval(function() {
+        location.reload();
+    }, 10 * 1000);
 }
 
 function montarPontos(dados) {
