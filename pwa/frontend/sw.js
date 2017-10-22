@@ -12,6 +12,7 @@ self.addEventListener('install', function(event) {
                 '/node_modules/material-design-icons/iconfont/material-icons.css',
                 '/images/android-desktop.png',
                 '/images/favicon.ico',
+                '/lib/js/localforage.min.js',
                 '/lib/js/material.min.js',
                 '/images/user.jpg'
             ]);
