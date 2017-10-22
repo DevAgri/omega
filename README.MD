@@ -1,3 +1,5 @@
+[logo]: https://github.com/DevAgri/omega/blob/master/logo.jpeg "Pajé"
+
 # Pajé - Sistema de coleta de pluviométrico colaborativo.
 
 ## Intregrantes
