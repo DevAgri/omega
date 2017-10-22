@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/DevAgri/omega/issues"
   },
-  "homepage": "https://github.com/DevAgri/omega#readme"
+  "homepage": "https://github.com/DevAgri/omega#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  }
 }

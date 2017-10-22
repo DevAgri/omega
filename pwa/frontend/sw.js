@@ -10,7 +10,8 @@ self.addEventListener('install', function(event) {
                 '/scripts.js',
                 '/manifest.js',
                 '/lib/css/material.cyan-light_blue.min.css',
-                '/lib/js/material.min.js'
+                '/lib/js/material.min.js',
+                '/images/user.jpg'
             ]);
         })
     );
