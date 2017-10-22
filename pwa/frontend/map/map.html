@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demonstrativo pluviômetros</title>
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="../node_modules/material-design-icons/iconfont/material-icons.css">
+    <link rel="stylesheet" href="../lib/css/material.cyan-light_blue.min.css">
+</head>
+
+<body>
+    <div id="map"></div>
+    <main class="mdl-layout__content mdl-color--grey-100" id="lista">
+        <div class="mdl-grid demo-content">
+            <div class="mdl-cell mdl-cell--12-col">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="lista-tpl">
+                    <thead>
+                        <tr>
+                            <th class="mdl-data-table__cell--non-numeric">Pluviômetro</th>
+                            <th>Nível</th>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMzy2HkRVFxgSWUn_yuA9t24GBbhYJ4i0&sensor=false&callback=initMap&signed_in=true"></script>
+    <script src="../lib/js/material.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="map.js"></script>
+</body>
+
+</html>
