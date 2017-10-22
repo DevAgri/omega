@@ -20,7 +20,7 @@ function main() {
   listar();
   listarMedicao();
   eventos();
-  startPoolingSocketIO();
+  startPooling();
 }
 
 function eventos() {
@@ -83,10 +83,12 @@ function gravar() {
     
 }
 
-function startPoolingSocketIO() {
+function startPooling() {
    
     setInterval(function() {
-        
+        $.getJSON("", function() {
+
+        });
     }, 1000);
 }
 
