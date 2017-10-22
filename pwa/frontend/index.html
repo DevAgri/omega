@@ -108,11 +108,12 @@
     <main class="mdl-layout__content mdl-color--grey-100">
       <div class="mdl-grid demo-content">
         <div class="mdl-cell mdl-cell--12-col">
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="margin: auto;">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="margin: auto;">
             <thead>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">Pluviômetro</th>
-                <th>Nível</th>
+                <th>Pluviômetro</th>
+                <th>Nível (mm)</th>
+                <th>Nome pessoa</th>
                 <th>Sincronização</th>
               </tr>
             </thead>
@@ -135,7 +136,7 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" type="text" id="nivel" pattern="-?[0-9]*(\.[0-9]+)?">
+              <input class="mdl-textfield__input" type="number" id="nivel" pattern="-?[0-9]*(\.[0-9]+)?">
               <label class="mdl-textfield__label" for="nivel">Nível (mm)</label>
               <span class="mdl-textfield__error">O valor deve ser numérico</span>
             </div>

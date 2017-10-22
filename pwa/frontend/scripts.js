@@ -61,7 +61,7 @@ function gravar() {
         type: "GET",
     }).done((data) => {
         dialogSalvar.close();
-        
+
         $("#nome").val("");
         $("#nivel").val("");
         $("#pluviometro").val("")
@@ -93,8 +93,9 @@ function montarLista(dados) {
     dados.forEach((item, i) => {
         var template = 
         `<tr>
-            <td class="mdl-data-table__cell--non-numeric">${item.id}</td>
+            <td class="mdl-data-table__cell--non-numeric">${item.descricao}</td>
             <td>${item.valor}</td>
+            <td>${item.nome}</td>
             <td>
             <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation" style="color: rgb(0, 150, 136);">cloud_done</i>
             </td>
