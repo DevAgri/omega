@@ -106,60 +106,62 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">123</td>
-                <td>2.90</td>
-                <td>
-                  <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">backup</i>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="mdl-data-table__cell--non-numeric">124</td>
-                <td>1.90</td>
-                <td>
-                  <i class="mdl-color-text--blue-green-400 material-icons" role="presentation" style="color: rgb(0, 150, 136); ">cloud_done</i>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
       </div>
 
       <dialog class="mdl-dialog show-modal">
-          <h4 class="mdl-dialog__title">Allow data collection?</h4>
-          <div class="mdl-dialog__content">
-            <p>
-              Allowing us to collect data will let us get you the information you want faster.
-            </p>
-          </div>
-          <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button">Agree</button>
-            <button type="button" class="mdl-button close">Disagree</button>
-          </div>
-        </dialog>
+        <h5 class="" style="-text-align: center">Adicionar medição</h5>
+        <div class="mdl-dialog__content">
+
+          <form action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <label for="pluviometro">Pluviometro</label>
+              <select name="" id="pluviometro">
+                <option value="">Selecione</option>
+              </select>
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="nivel" pattern="-?[0-9]*(\.[0-9]+)?">
+              <label class="mdl-textfield__label" for="nivel">Nível (mm)</label>
+              <span class="mdl-textfield__error">O valor deve ser numérico</span>
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="nome">
+                <label class="mdl-textfield__label" for="nome">Nome</label>
+              </div>
+          </form>
+        </div>
+
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button" id="salvar">Salvar</button>
+          <button type="button" class="mdl-button close" id="cancelar">Cancelar</button>
+        </div>
+      </dialog>
 
     </main>
   </div>
-  
-  <a href="#" id="view-source" style="background: rgb(0, 150, 136);"
-     class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white" 
-     data-upgraded=",MaterialButton,MaterialRipple">
-     <i class="mdl-color-text--blue-green-400 material-icons" role="presentation">add</i>
-     <span class="mdl-button__ripple-container">
-       <span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(62px, 3px);"></span>
+
+  <a href="#" id="view-source" style="background: rgb(0, 150, 136);" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-color-text--white"
+    data-upgraded=",MaterialButton,MaterialRipple">
+    <i class="mdl-color-text--blue-green-400 material-icons" role="presentation">add</i>
+    <span class="mdl-button__ripple-container">
+      <span class="mdl-ripple is-animating" style="width: 255.952px; height: 255.952px; transform: translate(-50%, -50%) translate(62px, 3px);"></span>
     </span>
   </a>
 
   <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
-      <div class="mdl-snackbar__text"></div>
-      <button class="mdl-snackbar__action" type="button"></button>
-    </div>
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
 
   <script src="lib/js/material.min.js"></script>
   <script src="lib/js/localforage.min.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="scripts.js"></script> 
+  <script src="scripts.js"></script>
 </body>
 
 </html>

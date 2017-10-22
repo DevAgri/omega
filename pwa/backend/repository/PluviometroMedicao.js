@@ -14,10 +14,24 @@ exports.list = function(pluviometroId) {
     });
 };
 
-exports.insert = function(valor, periodo, id) {
+
+exports.listAll = function() {
     return new Promise(function(resolve, reject) {
-        let sql = `insert into pluviometro_medicao set periodo=${periodo}, valor=${valor}
-            where pluviometro_id=${id}`;
+        let sql = `select p.valor, p.periodo from pluviometro_medicao p`;
+        connector.query(sql, function(error, results, fields) {
+            if (error) {
+                reject(error);
+            }
+            resolve(results);
+        });
+        
+    });
+};
+
+exports.insert = function(valor, periodo, nome, pluviometroId) {
+    return new Promise(function(resolve, reject) {
+        let sql = `insert into pluviometro_medicao set periodo='${periodo}', 
+            valor=${valor}, nome='${nome}', pluviometro_id=${pluviometroId}`;
         connector.query(sql, function(error, results, fields) {
             if (error) {
                 reject(error);

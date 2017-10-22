@@ -21,6 +21,7 @@
   "homepage": "https://github.com/DevAgri/omega#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "moment": "^2.19.1",
     "mysql": "^2.15.0"
   }
 }
