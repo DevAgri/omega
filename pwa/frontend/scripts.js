@@ -96,9 +96,6 @@ function montarLista(dados) {
             <td class="mdl-data-table__cell--non-numeric">${item.descricao}</td>
             <td>${item.valor}</td>
             <td>${item.nome}</td>
-            <td>
-            <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation" style="color: rgb(0, 150, 136);">cloud_done</i>
-            </td>
         </tr>`;
 
         html += template;

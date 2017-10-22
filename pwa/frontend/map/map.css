@@ -1,0 +1,26 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+#map {
+	height: 100%;
+	width: 70%;
+	float: left;
+}
+
+#lista {
+	width: 30%;
+	height: 100%;
+	float: left;
+	background: #ddd;
+}
+
+#lista-tpl {
+	width: 100%;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
