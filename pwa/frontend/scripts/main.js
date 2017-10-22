@@ -1,21 +1,6 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-        .then(function() {
-            console.log('service worker registered');
-        })
-        .catch(function(error) {
-            console.warn('service worker failed');
-            console.error(error);
-        });
-}
 
-function main() {
-    $.ajax({
-        url: "localhost:83/"
-    })
-}
-
-
+//actionSnackedBar();
+actionModal();
 
 function actionModal() {
     var dialog = document.querySelector('dialog');
@@ -43,9 +28,6 @@ function actionSnackedBar() {
         actionHandler: handler,
         actionText: 'Undo'
     };
-
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
-}
 
-//actionSnackedBar();
-actionModal();
+}

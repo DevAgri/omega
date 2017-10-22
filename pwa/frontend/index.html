@@ -126,6 +126,19 @@
         </div>
       </div>
 
+      <dialog class="mdl-dialog show-modal">
+          <h4 class="mdl-dialog__title">Allow data collection?</h4>
+          <div class="mdl-dialog__content">
+            <p>
+              Allowing us to collect data will let us get you the information you want faster.
+            </p>
+          </div>
+          <div class="mdl-dialog__actions">
+            <button type="button" class="mdl-button">Agree</button>
+            <button type="button" class="mdl-button close">Disagree</button>
+          </div>
+        </dialog>
+
     </main>
   </div>
   
@@ -138,12 +151,13 @@
     </span>
   </a>
 
-  <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--top-right" for="view-source">
-    <li class="mdl-menu__item">Histórico</li>
-  </ul>
+  <div id="snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
 
   <script src="lib/js/material.min.js"></script>
-  <script src="scripts/main.js"></script>
+  <script src="lib/js/localforage.min.js"></script>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="scripts.js"></script>
 </body>
