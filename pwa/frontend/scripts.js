@@ -20,6 +20,7 @@ function main() {
   listar();
   listarMedicao();
   eventos();
+  startPoolingSocketIO();
 }
 
 function eventos() {
@@ -50,6 +51,13 @@ function listarMedicao() {
         montarLista(data);
         console.info(data);
     }).fail(() => {
+
+        var html = 
+        `<tr>
+            <td collspan="5">Nenhum registro encontrado.</td>
+        </tr>`;
+
+        $(".mdl-layout__content").find("table").html(html);
         snackedBar("processo inesperado ao carregar dados do servidor");
     });
 }
@@ -68,12 +76,17 @@ function gravar() {
 
         snackedBar("Medição salva!")
         listarMedicao();
+        socket.emit("update.pluviometros");
     }).fail(() => {
         snackedBar("processo inesperado ao carregar dados do servidor");
     });
     
 }
 
+function startPoolingSocketIO() {
+    var url = "https://api.teste.comegasistemas.net.br";
+    var socket = io(url);
+}
 
 function montarPluviometro(data) {
     var select = $("#pluviometro");
@@ -135,14 +148,14 @@ function actionModal() {
     });    
 }
 
-function snackedBar(text) {
+function snackedBar(text, actionText, actionHandler) {
 
     var snackbarContainer = document.querySelector("#snackbar");  
     var data = {
     message: text,
         timeout: 2000,
-        actionHandler: undefined,
-        actionText: undefined
+        actionHandler: actionHandler,
+        actionText: actionText
     };
 
     snackbarContainer.MaterialSnackbar.showSnackbar(data);
