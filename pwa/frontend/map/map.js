@@ -4,13 +4,6 @@ function initMap() {
 
 function montarPontos(dados) {
     var pontos = [];
-    /*var porcAgua = [
-        { qtd: 100, cor: '#1418ff' },
-        { qtd: 75, cor: '#ffff05' },
-        { qtd: 50, cor: '#baff8a' },
-        { qtd: 25, cor: '#ffff05' },
-        { qtd: 0, cor: '#ff1e00' }
-    ];*/
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
@@ -32,6 +25,7 @@ function montarPontos(dados) {
         console.warn(row.total); 
         console.log(porcentagem);
         var color = "#ff1e00";
+
         if (porcentagem >= 0 && porcentagem < 25) {
             color = "#ff1e00";
         } else
@@ -42,7 +36,7 @@ function montarPontos(dados) {
             color = "#baff8a";
         } else
         if (porcentagem >= 75 && porcentagem < 100) {
-            color = "#ffff05";
+            color = "#0291bd";
         } else {
             color = "#1418ff"; 
         }

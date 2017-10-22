@@ -14,11 +14,46 @@
 <body>
     <div id="map"></div>
     <main class="mdl-layout__content mdl-color--grey-100" id="lista">
+        <!-- 
+            if (porcentagem >= 0 && porcentagem < 25) {
+            color = "#ff1e00";
+        } else
+        if (porcentagem >= 25 && porcentagem < 50) {
+            color = "#ffff05";
+        } else
+        if (porcentagem >= 50 && porcentagem < 75) {
+            color = "#baff8a";
+        } else
+        if (porcentagem >= 75 && porcentagem < 100) {
+            color = "#ffff05";
+        } else {
+            color = "#1418ff"; 
+        }
+         -->
+        <b>Valores estimados utilizando como base chuva anual de 1700mm</b>
         <ul class="legenda">
             <li>
-                <span></span>
+                <span style="background: #ff1e00;"></span> 
+                0mm à 425mm
+            </li>
+            <li>
+                <span style="background: #ffff05;"></span>
+                426mm à 850mm
+            </li>
+            <li>
+                <span style="background: #baff8a;"></span>
+                851mm à 1275mm
+            </li>
+            <li>
+                <span style="background: #0291bd;"></span>
+                1275mm à 1700mm
+            </li>
+            <li>
+                <span style="background: #1418ff;"></span>
+                Acima de 1700mm
             </li>
         </ul>
+        <br style="clear: both;">
         <div class="mdl-grid demo-content">
             <div class="mdl-cell mdl-cell--12-col">
                 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="lista-tpl">
