@@ -3,7 +3,8 @@ if ('serviceWorker' in navigator) {
         .then(function() {
             console.log('service worker registered');
         })
-        .catch(function() {
+        .catch(function(error) {
             console.warn('service worker failed');
+            console.error(error);
         });
 }
